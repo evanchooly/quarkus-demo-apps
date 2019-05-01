@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.graalvm.sdk:graal-sdk:1.0.0-rc15">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/graalvm/sdk/graal-sdk/1.0.0-rc15/graal-sdk-1.0.0-rc15.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/graalvm/sdk/graal-sdk/1.0.0-rc15/graal-sdk-1.0.0-rc15-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/graalvm/sdk/graal-sdk/1.0.0-rc15/graal-sdk-1.0.0-rc15-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

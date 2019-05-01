@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: io.quarkus:quarkus-resteasy-server-common:999-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/quarkus/quarkus-resteasy-server-common/999-SNAPSHOT/quarkus-resteasy-server-common-999-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/io/quarkus/quarkus-resteasy-server-common/999-SNAPSHOT/quarkus-resteasy-server-common-999-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/quarkus/quarkus-resteasy-server-common/999-SNAPSHOT/quarkus-resteasy-server-common-999-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

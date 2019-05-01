@@ -4,7 +4,7 @@ This is a sample template for quarkus-sam - Below is a brief explanation of what
 
 ```bash
 ├── README.md                                   <-- This instructions file
-├── HelloWorldFunction                          <-- Source for HelloWorldFunction Lambda Function
+├── QuarkusSam                          <-- Source for QuarkusSam Lambda Function
 │   ├── pom.xml                                 <-- Java dependencies
 │   └── src
 │       ├── main
@@ -68,7 +68,7 @@ AWS Lambda Java runtime accepts either a zip file or a standalone JAR file - We 
 
 ```yaml
 ...
-    HelloWorldFunction:
+    QuarkusSam:
         Type: AWS::Serverless::Function
         Properties:
             CodeUri: target/HelloWorld-1.0.jar
@@ -113,7 +113,7 @@ aws cloudformation describe-stacks \
 We use `JUnit` for testing our code and you can simply run the following command to run our tests:
 
 ```bash
-cd HelloWorldFunction
+cd QuarkusSam
 mvn test
 ```
 
