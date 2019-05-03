@@ -55,7 +55,7 @@ If the previous command ran successfully you should now be able to hit the follo
 ```yaml
 ...
 Events:
-    HelloWorld:
+    QuarkusSam:
         Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
         Properties:
             Path: /hello
@@ -71,7 +71,7 @@ AWS Lambda Java runtime accepts either a zip file or a standalone JAR file - We 
     QuarkusSam:
         Type: AWS::Serverless::Function
         Properties:
-            CodeUri: target/HelloWorld-1.0.jar
+            CodeUri: target/QuarkusSam-1.0.jar
             Handler: helloworld.App::handleRequest
 ```
 

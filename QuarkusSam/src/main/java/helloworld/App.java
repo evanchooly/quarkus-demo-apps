@@ -12,17 +12,17 @@ import javax.ws.rs.Path;
  * Handler for requests to Lambda function.
  */
 @Path("")
-public class App implements RequestHandler<HelloRequest, Object> {
+public class App implements RequestHandler<String, Object> {
 
     @Inject
-    private HelloGreeter greeter;
+    HelloGreeter greeter;
 
-//    @POST
-    public Object handleRequest(final HelloRequest request, final Context context) {
+    public Object handleRequest(final String request, final Context context) {
         System.out.println("App.handleRequest");
         System.out.println("request = [" + request + "], context = [" + context + "]");
+        System.out.println("greeter = " + greeter);
 
-        return greeter.greet(request.firstName, request.lastName);
+        return "you said " + request; //greeter.greet(request.firstName, request.lastName);
 //        Map<String, String> headers = new HashMap<>();
 //        headers.put("Content-Type", "application/json");
 //        headers.put("X-Custom-Header", "application/json");

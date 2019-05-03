@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>helloworld</groupId>
-    <artifactId>HelloWorld</artifactId>
+    <artifactId>QuarkusSam</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
     <name>A sample Hello World created for SAM CLI.</name>
@@ -32,10 +32,6 @@
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-amazon-lambda</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-amazon-lambda-resteasy</artifactId>
         </dependency>
         <dependency>
@@ -62,6 +58,9 @@
                         <goals>
                             <goal>build</goal>
                         </goals>
+                        <configuration>
+                            <wiringClassesDirectory>target/classes/</wiringClassesDirectory>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
