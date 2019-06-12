@@ -1,5 +1,8 @@
 #! /bin/sh
 
-qinstall core extensions/amazon-lambda-resteasy && \
+#qinstall core extensions/amazon-lambda-resteasy && \
 	sam build --debug | tee sam-build.out && \
-	sam local invoke --event event.json
+	sam local start-api #--debug-port 5005
+
+
+#--event event.json

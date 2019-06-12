@@ -3,26 +3,33 @@ package helloworld;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Handler for requests to Lambda function.
  */
-@Path("")
-public class App implements RequestHandler<String, Object> {
+@Path("/hello")
+//@Produces(MediaType.TEXT_PLAIN)
+//@Consumes(MediaType.APPLICATION_JSON)
+public class App /*implements RequestHandler<String, Object>*/ {
 
     @Inject
     HelloGreeter greeter;
 
-    public Object handleRequest(final String request, final Context context) {
+    @POST
+//    @Produces(MediaType.TEXT_PLAIN)
+//    @Consumes(MediaType.APPLICATION_JSON)
+    public Object handleRequest(final String request/*, final Context context*/) {
         System.out.println("App.handleRequest");
-        System.out.println("request = [" + request + "], context = [" + context + "]");
+//        System.out.println("request = [" + request + "], context = [" + context + "]");
         System.out.println("greeter = " + greeter);
 
-        return "you said " + request; //greeter.greet(request.firstName, request.lastName);
+        return "hey there"; //greeter.greet(request.firstName, request.lastName);
 //        Map<String, String> headers = new HashMap<>();
 //        headers.put("Content-Type", "application/json");
 //        headers.put("X-Custom-Header", "application/json");

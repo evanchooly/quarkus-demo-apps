@@ -1,6 +1,9 @@
 package helloworld;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 @ApplicationScoped
 public class HelloGreeter {
