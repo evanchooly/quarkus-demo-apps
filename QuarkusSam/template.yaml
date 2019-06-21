@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Demo application for Quarkus and SAM'
+
+Globals:
+  Function:
+    Timeout: 20
+  Api:
+    # API Gateway regional endpoints
+    EndpointConfiguration: REGIONAL
+
+Resources:
+  QuarkusSam:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: io.quarkus.amazon.lambda.resteasy.runtime.container.StreamLambdaHandler::handleRequest
+      Runtime: java8
+#      CodeUri: target/classes
+      Policies: AWSLambdaBasicExecutionRole
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+
+Outputs:
+  QuarkusSamApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value: 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/greeting/'
+  Export:
+    Name: QuarkusSam
+

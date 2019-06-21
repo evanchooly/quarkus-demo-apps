@@ -9,7 +9,11 @@ import javax.ws.rs.core.MediaType;
 public class HelloGreeter {
 
     public String greet(String first, String last) {
-        return String.format("Hello %s %s.", first, last);
+        return String.format("Hello %s %s.%n", first, last);
+    }
+
+    public String bye(String first, String last) {
+        return String.format("Fare well, %s %s.%n", first, last);
     }
 
 }
