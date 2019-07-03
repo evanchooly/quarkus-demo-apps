@@ -38,12 +38,6 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jsonb</artifactId>
         </dependency>
-<!--
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-json-binding-provider</artifactId>
-        </dependency>
--->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jaxb</artifactId>
@@ -56,6 +50,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>package</defaultGoal>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -75,6 +70,19 @@
                         <configuration>
                             <wiringClassesDirectory>target/classes/</wiringClassesDirectory>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-amazon-lambda-resteasy-maven</artifactId>
+                <version>${quarkus.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>configure-sam</goal>
+                        </goals>
+                        <phase>compile</phase>
                     </execution>
                 </executions>
             </plugin>

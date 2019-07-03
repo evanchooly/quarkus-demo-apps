@@ -3,8 +3,9 @@
 [[ "$DEBUG" ]] && OPTIONS="--debug-port 5005"
 clear
 mvn clean
-#qinstall core extensions/amazon-lambda-resteasy || exit
-sam build || exit
+
+#qinstall extensions/amazon-lambda-resteasy || exit
+sam build  || exit
 sam local start-api ${OPTIONS} &
 echo $! > sam.pid
 
