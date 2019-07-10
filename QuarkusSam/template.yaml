@@ -11,6 +11,7 @@ Resources:
     Properties:
       Handler: io.quarkus.amazon.lambda.resteasy.runtime.container.StreamLambdaHandler::handleRequest
       Runtime: java8
+      MemorySize: 512
       Policies: AWSLambdaBasicExecutionRole
       Events:
         GetResource:
@@ -18,4 +19,3 @@ Resources:
           Properties:
             Path: /{proxy+}
             Method: any
-
