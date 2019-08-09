@@ -1,10 +1,11 @@
-# Compiled class file
 *.class
+target/
 
 # Log file
 *.log
 
 *.idea
+*.iml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
