@@ -13,7 +13,7 @@ events() {
 
   cat << EOF > target/log.sh
 aws logs get-log-events \\
-     --log-group-name /aws/lambda/quarkus-poc \\
+     --log-group-name /aws/lambda/${LOG_GROUP} \\
      --log-stream-name $NAME \\
      | jq '.events[].message' | sed -e 's|\\\\n||g' -e 's/^"//' -e 's/"$//' -e 's/\\\t/ /g'
 EOF
@@ -24,28 +24,27 @@ EOF
 }
 
 names() {
-  aws logs describe-log-streams --log-group-name /aws/lambda/quarkus-poc | \
+  aws logs describe-log-streams --log-group-name /aws/lambda/${LOG_GROUP} | \
     jq '.logStreams[].logStreamName'
 }
 
 dump() {
   names | while read NAME
   do
-      echo $NAME
       events "$( cleanUp $NAME )"
   done
 }
 
 clearStreams() {
   aws logs create-log-group \
-      --log-group-name /aws/lambda/quarkus-poc 2>/dev/null || true
+      --log-group-name /aws/lambda/${LOG_GROUP} 2>/dev/null || true
   mkdir -p target
 
   names | while read NAME
       do
           NAME=$( cleanUp $NAME )
           cat << EOF > target/log.sh
-aws logs delete-log-stream --log-group-name /aws/lambda/quarkus-poc --log-stream-name $NAME
+aws logs delete-log-stream --log-group-name /aws/lambda/${LOG_GROUP} --log-stream-name $NAME
 EOF
 
     sh target/log.sh

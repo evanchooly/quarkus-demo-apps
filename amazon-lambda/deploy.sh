@@ -2,10 +2,11 @@
 
 set -e -x
 
-source dump-aws-logs.sh
-
 APPDIR=target/
 BUNDLEDIR=target/bundle
+LOG_GROUP=quarkus-poc
+
+source ../bin/dump-aws-logs.sh
 
 function bundle() {
   [  $(ls target/*-runner) ] && return
