@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e -x
+set -e #-x
 
 APPDIR=target/
 BUNDLEDIR=target/bundle
