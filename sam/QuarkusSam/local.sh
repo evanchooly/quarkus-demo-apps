@@ -1,26 +1,29 @@
 #! /bin/sh
 
-set -e 
+set -e
 
-[[ "$DEBUG" ]] && OPTIONS="--debug-port 5005"
+if [ "$DEBUG" ]
+then
+  OPTIONS="--debug --debug-port 5005"
+fi
+
 clear
 mvn clean
 
 qinstall extensions/amazon-lambda-resteasy
-sam build 
+sam build
 sam local start-api ${OPTIONS} &
 echo $! > sam.pid
 
 sleep 3
-echo
-echo
-echo
+echo "\n\n\n"
 
 curl -s \
     --header "Content-Type: application/json" \
     --request POST \
     --data '{ "firstName":"Jim", "lastName" : "Halpert" }' \
     http://localhost:3000/greeting/bye
+echo
 
 curl -s \
     --header "Content-Type: application/json" \
@@ -28,8 +31,6 @@ curl -s \
     --data '{ "firstName":"Jim", "lastName" : "Halpert" }' \
     http://localhost:3000/greeting/hello
 
-echo
-echo
-echo
+echo "\n\n\n"
 
-kill -9 `cat sam.pid` && rm sam.pid
+kill -9 $(cat sam.pid) && rm sam.pid

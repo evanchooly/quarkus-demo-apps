@@ -3,8 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 
 Globals:
   Function:
-    Timeout: 20
-
+    Timeout: 5
 Resources:
   QuarkusSam:
     Type: AWS::Serverless::Function
