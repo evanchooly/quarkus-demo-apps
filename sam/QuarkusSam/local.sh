@@ -10,8 +10,8 @@ fi
 clear
 mvn clean
 
-qinstall extensions/amazon-lambda-resteasy
-sam build
+qinstall extensions/amazon-sam
+sam build #--debug
 sam local start-api ${OPTIONS} &
 echo $! > sam.pid
 
@@ -24,6 +24,8 @@ curl -s \
     --data '{ "firstName":"Jim", "lastName" : "Halpert" }' \
     http://localhost:3000/greeting/bye
 echo
+
+exit
 
 curl -s \
     --header "Content-Type: application/json" \

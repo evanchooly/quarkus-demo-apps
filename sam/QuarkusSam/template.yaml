@@ -1,20 +1,20 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::Serverless-2016-10-31
-
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
 Globals:
   Function:
     Timeout: 5
 Resources:
   QuarkusSam:
-    Type: AWS::Serverless::Function
+    Type: "AWS::Serverless::Function"
     Properties:
-      Handler: io.quarkus.amazon.lambda.resteasy.runtime.container.StreamLambdaHandler::handleRequest
-      Runtime: java8
+      Handler: "io.quarkus.amazon.sam.SamHandler::handleRequest"
+      Runtime: "java8"
       MemorySize: 512
-      Policies: AWSLambdaBasicExecutionRole
+      Policies: "AWSLambdaBasicExecutionRole"
       Events:
         GetResource:
-          Type: Api
+          Type: "Api"
           Properties:
-            Path: /{proxy+}
-            Method: any
+            Path: "/{proxy+}"
+            Method: "any"
