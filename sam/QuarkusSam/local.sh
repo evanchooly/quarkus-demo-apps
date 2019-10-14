@@ -22,17 +22,15 @@ curl -s \
     --header "Content-Type: application/json" \
     --request POST \
     --data '{ "firstName":"Jim", "lastName" : "Halpert" }' \
-    http://localhost:3000/greeting/bye
-echo
+    http://localhost:3000/greeting/hello
 
-exit
+echo "\n\n\n"
 
 curl -s \
     --header "Content-Type: application/json" \
     --request POST \
     --data '{ "firstName":"Jim", "lastName" : "Halpert" }' \
-    http://localhost:3000/greeting/hello
-
-echo "\n\n\n"
+    http://localhost:3000/greeting/bye
+echo
 
 kill -9 $(cat sam.pid) && rm sam.pid
