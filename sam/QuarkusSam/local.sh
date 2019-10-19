@@ -10,8 +10,8 @@ fi
 clear
 mvn clean
 
-qinstall extensions/amazon-sam
-sam build #--debug
+qinstall extensions/amazon-lambda-http
+sam build --debug
 sam local start-api ${OPTIONS} &
 echo $! > sam.pid
 

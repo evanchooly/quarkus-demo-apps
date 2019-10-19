@@ -8,7 +8,7 @@ Resources:
   QuarkusSam:
     Type: "AWS::Serverless::Function"
     Properties:
-      Handler: "io.quarkus.amazon.sam.SamHandler::handleRequest"
+      Handler: "io.quarkus.amazon.lambda.http.HttpHandler::handleRequest"
       Runtime: "java8"
       MemorySize: 512
       Policies: "AWSLambdaBasicExecutionRole"
