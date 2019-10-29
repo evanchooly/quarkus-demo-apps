@@ -2,18 +2,24 @@
 
 set -e
 
+TEMPLATE=sam.jvm.yaml
+
 if [ "$DEBUG" ]
 then
   OPTIONS="--debug --debug-port 5005"
 fi
+if [ "$NATIVE" ]
+then
+  TEMPLATE=sam.native.yaml
+  MAVEN_FLAGS="-Pnative -Dnative-image.docker-build=true"
+fi
 
 clear
 
-killsam.sh &
 qinstall extensions/amazon-lambda-http
-mvn clean install
-#sam build --template sam.jvm.yaml ## --debug
-sam local start-api --template sam.jvm.yaml ${OPTIONS} &
+
+mvn clean package ${MAVEN_FLAGS}
+sam local start-api --template ${TEMPLATE} ${OPTIONS} &
 echo $! > sam.pid
 
 sleep 3
