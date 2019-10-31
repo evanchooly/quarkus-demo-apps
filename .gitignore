@@ -23,3 +23,4 @@ target/
 */packaged.yaml
 .aws-sam
 .sam
+.lambda

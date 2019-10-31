@@ -28,7 +28,6 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-        <!-- remove if not using jaxrs -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
