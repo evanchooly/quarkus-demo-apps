@@ -3,6 +3,12 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/amazon-lambda" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/amazon-lambda-http" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/amazon-lambda-http/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/amazon-lambda-http/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/amazon-lambda/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/amazon-lambda/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sam/QuarkusSam" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sam/QuarkusSam/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sam/QuarkusSam/src/main/resources" charset="UTF-8" />
   </component>
 </project>
