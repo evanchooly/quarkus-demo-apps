@@ -45,25 +45,12 @@ public class GreetingResource {
     @Path("/kitten")
     @Produces("image/jpeg")
     public Response kitten() throws IOException {
-
-
-        //        byte[] buffer = new byte[8192];
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        //        try (InputStream stream = getClass().getResourceAsStream("/kitten.jpeg")) {
-        //            int read;
-        //            while ((read = stream.read(buffer)) != -1){
-        //                baos.write(buffer, 0, read);
-        //            }
-        //        } catch (IOException e) {
-        //            e.printStackTrace();
-        //        }
 
         InputStream stream = getClass().getResourceAsStream("/kitten.jpeg");
         BufferedImage image = ImageIO.read(stream);
         ImageIO.write(image, "jpeg", baos);
         byte[] imageData = baos.toByteArray();
-
-//        return Response.ok(imageData).build();
 
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
